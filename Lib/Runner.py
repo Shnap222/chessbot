@@ -38,6 +38,6 @@ if __name__ == '__main__':
     # driver.implicitly_wait(5)
     # move = ActionChains(driver)
     # main()
-    botChessGame.BotChessGame(r"C:\Program Files (x86)\chromedriver99.exe", CHESS_BOT_URL).start()
+    bot_player = botChessGame.BotChessGame(r"C:\Program Files (x86)\chromedriver99.exe", CHESS_BOT_URL)
     playerChessGame.PlayerChessGame(r"C:\Program Files (x86)\chromedriver99.exe", CHESS_MAIN_URL, username=USERNAME,
-                                    password=PASSWORD).start()
+                                    password=PASSWORD, bot_player=bot_player).start()

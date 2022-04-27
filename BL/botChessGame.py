@@ -18,13 +18,27 @@ class BotChessGame(Ichessplayer.ChessPlayer, seleniumChessPlayer.SeleniumChessPl
     def run(self):
         self.start_match()
         self.move_piece("//div[@class='piece wp square-82']", "//div[contains(@class,'square-83')]")
-        while True:
-            time.sleep(10)
+        print(self.wait_for_move())
 
     def wait_for_move(self):
-        pass
+        # todo make it work
+        get_last_move = self.driver.find_elements(By.XPATH, "//div[contains(@class,'highlight')]")
+        print("last_move")
+        print(get_last_move)
 
-    def move_piece(self, piece, end_place):
+        get_highlighted_moves = get_last_move
+
+        while get_last_move == get_highlighted_moves or len(get_highlighted_moves) != 2:
+            time.sleep(0.1)
+            get_highlighted_moves = self.driver.find_elements(By.XPATH, "//div[contains(@class,'highlight')]")
+            print(get_last_move[0].get_attribute('class') == get_highlighted_moves[0].get_attribute('class'))
+            print(get_last_move[0].get_attribute('class'))
+            print(get_highlighted_moves[0].get_attribute('class'))
+            print(get_highlighted_moves)
+
+        return get_highlighted_moves
+
+    def move_piece(self, piece: str, end_place: str):
         self.action.click(self.driver.find_element(By.XPATH, piece)).perform()
         self.action.click(self.driver.find_elements(By.XPATH, end_place)[-1]).perform()
 

@@ -10,8 +10,8 @@ from BL import botChessGame, playerChessGame
 CHESS_MAIN_URL = "https://www.chess.com/play/online"
 CHESS_BOT_URL = "https://www.chess.com/play/computer"
 
-USERNAME = "spiff3690"
-PASSWORD = "Password1!"
+USERNAME = ""
+PASSWORD = "!"
 
 
 def main():

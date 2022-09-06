@@ -1,3 +1,3 @@
 # chessbot
 
-Program that cheats in chess.com using selenium
+Program that cheats in chess.com using selenium automaticly 
